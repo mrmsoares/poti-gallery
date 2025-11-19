@@ -1,0 +1,76 @@
+/**
+ * Poti Mosaic Gallery - Main Stylesheet
+ *
+ * @package Poti\MosaicGallery
+ * @version 1.0.0
+ */
+
+// Import cascade layers base
+@import 'layers/base';
+
+// Import components
+@import 'components/gallery';
+@import 'components/captions';
+@import 'components/hover-effects';
+@import 'components/lightbox';
+
+// Import editor styles (conditionally loaded)
+@import 'editor/editor-styles';
+
+/**
+ * Utilities
+ */
+@layer poti-gallery {
+  /* Animation utilities */
+  @keyframes poti-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes poti-slide-up {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* FLIP animation for column reorganization */
+  .poti-gallery__column--animating {
+    animation: poti-slide-up 0.3s ease-out;
+  }
+
+  /* Loading states */
+  .poti-gallery__image {
+    &[data-loading="true"] {
+      background-size: cover;
+      background-position: center;
+      min-height: 200px;
+    }
+  }
+
+  /* Accessibility */
+  .poti-gallery__link:focus {
+    outline: 2px solid var(--poti-orange);
+    outline-offset: 2px;
+  }
+
+  /* Print styles */
+  @media print {
+    .poti-gallery-container {
+      display: block !important;
+
+      .poti-gallery__column {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  }
+}

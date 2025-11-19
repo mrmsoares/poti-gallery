@@ -1,0 +1,21 @@
+/**
+ * Base Layer - CSS Cascade Layer Setup
+ * Ensures plugin styles don't get overridden by aggressive themes
+ */
+
+@layer poti-gallery {
+  /* Poti Design System Tokens */
+  :root {
+    --poti-orange: #ff6b35;
+    --poti-turquoise: #1abc9c;
+    --poti-dark: #2c3e50;
+    --poti-light: #ecf0f1;
+    --poti-white: #ffffff;
+
+    /* Gallery specific variables */
+    --poti-gallery-gutter: 20px;
+    --poti-gallery-radius: 8px;
+    --poti-gallery-transition: 300ms ease;
+    --poti-gallery-overlay: rgba(0, 0, 0, 0.5);
+  }
+}

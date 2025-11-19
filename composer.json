@@ -1,0 +1,24 @@
+{
+  "name": "poti/poti-mosaic-gallery",
+  "description": "Mosaico Inteligente por Colunas para Elementor - Poti Design System",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Agência Poti",
+      "email": "contato@agenciapoti.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Poti\\MosaicGallery\\": "inc/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}

@@ -1,0 +1,44 @@
+/**
+ * Hover Effects Component
+ * Zoom, tilt, fade, and other interaction effects
+ */
+
+@layer poti-gallery {
+  /* Zoom effect */
+  .poti-gallery--hover-zoom {
+    .poti-gallery__image {
+      transition: transform var(--poti-gallery-transition);
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  /* 3D Tilt effect */
+  .poti-gallery--hover-tilt {
+    .poti-gallery__item {
+      perspective: 1000px;
+    }
+
+    .poti-gallery__link {
+      transform-style: preserve-3d;
+      transition: transform var(--poti-gallery-transition);
+
+      &:hover {
+        transform: rotateX(2deg) rotateY(2deg);
+      }
+    }
+  }
+
+  /* Fade effect */
+  .poti-gallery--hover-fade {
+    .poti-gallery__image {
+      transition: opacity var(--poti-gallery-transition);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

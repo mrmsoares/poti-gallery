@@ -1,0 +1,49 @@
+/**
+ * Lightbox Component
+ * Custom styling for Fancybox integration
+ */
+
+@layer poti-gallery {
+  /* Custom lightbox container */
+  .poti-lightbox {
+    &__backdrop {
+      background: rgba(0, 0, 0, 0.95);
+    }
+
+    &__content {
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    &__nav {
+      &--prev,
+      &--next {
+        background: var(--poti-orange);
+        color: var(--poti-white);
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background var(--poti-gallery-transition);
+
+        &:hover {
+          background: var(--poti-turquoise);
+        }
+      }
+    }
+
+    &__close {
+      background: var(--poti-orange);
+      color: var(--poti-white);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+
+      &:hover {
+        background: var(--poti-turquoise);
+      }
+    }
+  }
+}
