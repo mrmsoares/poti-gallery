@@ -1,244 +1,155 @@
 # Poti Mosaic Gallery
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
 ![WordPress](https://img.shields.io/badge/WordPress-6.4+-green.svg)
 ![Elementor](https://img.shields.io/badge/Elementor-3.18+-orange.svg)
 ![PHP](https://img.shields.io/badge/PHP-8.1+-purple.svg)
 
-Widget de galeria de imagens ultra-premium, desenvolvido exclusivamente para o ecossistema Elementor. Permite a criação de layouts de mosaico complexos (inspirados em Pinterest/Behance) com controles granulares por coluna.
+**Plugin híbrido de galeria de imagens** com suporte completo para Custom Post Types **E** Widget do Elementor.
 
-## 🎨 Características
+## 🎯 Duas Formas de Usar
 
-### Pilares Inegociáveis
+### 📋 Modo 1: Custom Post Type (WordPress Tradicional)
 
-- **Elementor-Native**: 100% integrado ao Elementor - todas as configurações residem dentro do Widget
-- **UX "Delight"**: Interface visual, animada e tátil (WYSWYG)
-- **Robustez Blindada**: Mecanismos de autodiagnóstico para sobreviver a atualizações
+Crie galerias através da interface admin do WordPress e use em qualquer lugar via shortcodes.
 
-### Recursos Premium
+**✨ Funcionalidades:**
+- Interface intuitiva de administração
+- Upload múltiplo de imagens
+- Reordenação via drag & drop
+- 3 layouts: Grade, Masonry, Carrossel
+- Lightbox integrado (Fancybox 5)
+- Shortcodes fáceis: `[poti_gallery id="123"]`
+- Configurações personalizáveis (colunas, lightbox)
+- Responsivo e otimizado para mobile
+
+#### Como Usar o Custom Post Type
+
+1. Acesse **Poti Galleries > Adicionar Nova**
+2. Digite um título para a galeria
+3. Clique em **Adicionar Imagens** para selecionar fotos
+4. Reordene as imagens arrastando-as
+5. Configure layout e número de colunas
+6. Publique e copie o shortcode gerado
+
+**Shortcode:**
+```
+[poti_gallery id="123" columns="4" layout="masonry" lightbox="yes"]
+```
+
+**Parâmetros:**
+- `id` (obrigatório): ID da galeria
+- `columns`: Número de colunas (2-6)
+- `layout`: grid, masonry ou carousel
+- `lightbox`: yes ou no
+
+### 🎨 Modo 2: Widget Elementor (Design Premium)
+
+Use o widget "Mosaico Poti" no Elementor para criar layouts avançados com controle total.
+
+**✨ Funcionalidades Premium:**
 
 #### Layout & Grid
 - 📐 **1-10 Colunas**: Grid simplificado (1-3) ou Mosaico inteligente (4-10)
 - 🎯 **Configuração por Coluna**: Defina max_images e layout interno para cada coluna
-- 📱 **Totalmente Responsivo**: Breakpoints automáticos para tablet e mobile
-- 🔄 **Animações FLIP**: Reorganização suave ao alterar número de colunas
+- 📱 **Totalmente Responsivo**: Breakpoints automáticos
+- 🔄 **Animações FLIP**: Reorganização suave ao alterar colunas
 
 #### Imagens
-- 🖼️ **Formatos Modernos**: Suporte WebP/AVIF com fallback automático
-- ⚡ **BlurHash Placeholder**: Carregamento progressivo sem layout shift
-- 🎯 **Focal Point Manual**: Defina o ponto de foco para evitar cortes indesejados
-- 📊 **Performance Score**: Indicadores visuais (verde/amarelo/vermelho) por imagem
-- 🔍 **Lazy Loading**: Carregamento inteligente via Intersection Observer
+- 🖼️ **Formatos Modernos**: Suporte WebP/AVIF com fallback
+- ⚡ **BlurHash Placeholder**: Carregamento progressivo
+- 🎯 **Focal Point Manual**: Defina ponto de foco
+- 📊 **Performance Score**: Indicadores visuais por imagem
+- 🔍 **Lazy Loading**: Intersection Observer
 
 #### Interação
-- 🌟 **Lightbox Hero**: Transição expandindo da thumbnail (Fancybox 5)
+- 🌟 **Lightbox Hero**: Transição expandindo da thumbnail
 - 📱 **Swipe com Física**: Rubber banding no mobile
-- ⌨️ **Controles de Teclado**: Navegação completa (setas, ESC)
+- ⌨️ **Controles de Teclado**: Navegação completa
 - 🎨 **Efeitos de Hover**: Zoom, 3D Tilt, Fade
-- 💎 **Glassmorphism**: Efeito de vidro nas legendas overlay
+- 💎 **Glassmorphism**: Efeito de vidro nas legendas
 
-#### Developer Experience
-- 🔒 **CSS Cascade Layers**: Isolamento total dos estilos
-- 🎭 **BEM Methodology**: Arquitetura CSS organizada
-- 🛡️ **Compatibility Sentinel**: Verificação de compatibilidade antes de ativar
-- 📦 **PSR-4 Autoload**: Arquitetura moderna com namespaces
-- 🚀 **Vite Build System**: Build rápido e otimizado
-
-## 📋 Requisitos
-
-- **WordPress**: 6.4 ou superior
-- **Elementor**: 3.18 ou superior
-- **PHP**: 8.1 ou superior
-- **Extensões PHP**: GD ou ImageMagick (para otimização de imagens)
-
-## 🚀 Instalação
-
-### 1. Via Composer (Recomendado)
-
-```bash
-# Clone o repositório
-git clone https://github.com/agenciapoti/poti-mosaic-gallery.git
-
-# Entre na pasta
-cd poti-mosaic-gallery
-
-# Instale dependências PHP
-composer install
-
-# Instale dependências Node
-npm install
-
-# Build dos assets
-npm run build
-```
-
-### 2. Instalação Manual
-
-1. Baixe o plugin
-2. Faça upload para `/wp-content/plugins/poti-mosaic-gallery`
-3. Execute `composer install` na pasta do plugin
-4. Execute `npm install && npm run build`
-5. Ative o plugin no WordPress
-
-## 📖 Uso
-
-### Adicionando o Widget
+#### Como Usar o Widget Elementor
 
 1. Edite uma página com Elementor
 2. Procure por **"Mosaico Poti"** na categoria "Poti Widgets"
 3. Arraste para a área desejada
+4. Configure colunas e layouts internos
+5. Adicione imagens e customize estilos
 
-### Configuração Básica
+## 📦 Instalação
 
-#### Aba: CONTEÚDO
+Veja [INSTALL.md](INSTALL.md) para instruções detalhadas.
 
-**Estrutura do Grid**
-- Defina o número de colunas (1-10)
-- 1-3 colunas = Grid Simplificado
-- 4-10 colunas = Mosaico Inteligente
+### Quick Start
 
-**Configuração das Colunas**
-- Para cada coluna, configure:
-  - **Max Imagens**: Quantas imagens (1-4)
-  - **Layout Interno**: Full, Empilhadas, Lado a Lado, Misto 2+1, Grid 2x2
-
-**Mídia**
-- Clique em "Adicionar Imagens"
-- Selecione da biblioteca WordPress
-- Defina tamanho de imagem
-
-#### Aba: ESTILO
-
-**Layout & Espaçamento**
-- Ajuste o gutter (espaçamento entre imagens)
-- Configure border radius
-- Adicione bordas e sombras
-
-**Legendas & Overlay**
-- Ative/desative legendas
-- Escolha posição (topo, embaixo, overlay)
-- Ative efeito glassmorphism
-- Customize tipografia e cores
-
-**Efeitos de Hover**
-- Escolha entre: Nenhum, Zoom, 3D Tilt, Fade
-- Ajuste duração da transição
-
-#### Aba: AVANÇADO
-
-**Comportamento do Clique**
-- Nada
-- Abrir Lightbox (com transição Hero/Fade/Slide)
-- Link Direto
+```bash
+git clone https://github.com/mrmsoares/poti-gallery.git
+cd poti-gallery
+composer install
+npm install
+npm run build
+```
 
 ## 🏗️ Arquitetura
 
-### Estrutura de Diretórios
-
 ```
 poti-mosaic-gallery/
-├── assets/
-│   ├── css/
-│   │   ├── layers/          # CSS Cascade Layers
-│   │   ├── components/      # BEM Components
-│   │   └── editor/          # Editor styles
-│   └── js/
-│       ├── engine/          # Layout calculator
-│       ├── ui/              # Animations, focal point
-│       └── lightbox/        # Fancybox config
 ├── inc/
-│   ├── Admin/               # Settings page
+│   ├── Admin/               # Configurações
 │   ├── Core/                # Plugin & Sentinel
-│   ├── Engine/              # Layout & Image optimizer
-│   └── Widgets/             # Elementor widget
-└── languages/               # i18n
+│   ├── Engine/              # Layout & Optimizer
+│   ├── PostType/            # ⭐ Custom Post Type
+│   └── Widgets/             # ⭐ Widget Elementor
+└── assets/
+    ├── css/                 # SCSS modular
+    └── js/                  # JavaScript moderno
 ```
 
-### Classes Principais
+## 📋 Requisitos
 
-- **`Plugin`**: Singleton maestro que inicializa tudo
-- **`Compatibility_Sentinel`**: Guardião que verifica compatibilidade
-- **`Poti_Gallery_Widget`**: O widget Elementor
-- **`Layout_Calculator`**: Engine de distribuição de imagens
-- **`Image_Optimizer`**: WebP, BlurHash e otimização
-- **`Infra_Settings`**: Página invisível de infraestrutura
+- **WordPress**: 6.4+
+- **PHP**: 8.1+
+- **Elementor**: 3.18+ (opcional, apenas para widget)
+- **Extensões PHP**: GD ou ImageMagick
 
-## 🛠️ Development
+## 🎯 Comparação
 
-### Build Assets
-
-```bash
-# Development (watch mode)
-npm run dev
-
-# Production build
-npm run build
-
-# Preview
-npm run preview
-```
-
-### Code Quality
-
-```bash
-# Lint JavaScript
-npm run lint:js
-
-# Lint CSS
-npm run lint:css
-
-# PHP CodeSniffer (requer phpcs instalado)
-composer phpcs
-```
-
-### Estrutura de Branches
-
-- `main`: Produção estável
-- `develop`: Desenvolvimento ativo
-- `feature/*`: Novas features
-- `hotfix/*`: Correções urgentes
-
-## 🎯 Roadmap (v5.0)
-
-- [ ] Integração com Google Vision API (tags automáticas)
-- [ ] Integração com Unsplash
-- [ ] Modo "Smart Crop" com IA
-- [ ] Import/Export de configurações de galeria
-- [ ] Templates prontos de layouts
+| Recurso | Custom Post Type | Widget Elementor |
+|---------|-----------------|------------------|
+| **Uso** | Shortcodes | Elementor Editor |
+| **Layouts** | 3 fixos | Infinitos configuráveis |
+| **Colunas** | 2-6 | 1-10 com config por coluna |
+| **WebP/BlurHash** | ❌ | ✅ |
+| **Animações** | ❌ | ✅ |
+| **Requer Elementor** | ❌ | ✅ |
 
 ## 📝 Changelog
 
-### v1.0.0 - 2024-XX-XX
-- 🎉 Lançamento inicial
-- ✨ Grid mosaico de 1-10 colunas
-- ✨ Lightbox com transição Hero
-- ✨ Suporte WebP/BlurHash
-- ✨ Editor UX Premium
+### v2.0.0 - 2024-11-19
+- 🎉 **Versão Híbrida**: Custom Post Type + Widget Elementor
+- ✨ Sistema de galerias tradicional via Admin
+- ✨ Shortcodes `[poti_gallery]` com 3 layouts
+- ✨ Widget Elementor mantido (todas funcionalidades)
+- 🔧 Arquitetura unificada (PSR-4, Vite, CSS Layers)
 
-## 🤝 Contribuindo
-
-1. Fork o projeto
-2. Crie uma branch (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+[Veja CHANGELOG.md completo](CHANGELOG.md)
 
 ## 📄 Licença
 
-GPL-3.0-or-later - veja [LICENSE](LICENSE) para detalhes.
+GPL-3.0-or-later - [LICENSE](LICENSE)
 
-## 👨‍💻 Autores
+## 👨‍💻 Autor
 
-**Agência Poti**
-- Website: [agenciapoti.com](https://agenciapoti.com)
-- Email: contato@agenciapoti.com
+**MRM Soares**
+- GitHub: [@mrmsoares](https://github.com/mrmsoares)
 
-## 🙏 Agradecimentos
+**Design System**: Agência Poti
 
-- Elementor Team pela incrível plataforma
-- Fancybox pela biblioteca de lightbox
-- WordPress Community
+## 🐛 Suporte
+
+[Abra uma issue](https://github.com/mrmsoares/poti-gallery/issues)
 
 ---
 
-Feito com ❤️ pela [Agência Poti](https://agenciapoti.com)
+**⭐ Gostou? Deixe uma estrela no GitHub!**

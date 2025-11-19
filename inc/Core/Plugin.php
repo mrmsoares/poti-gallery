@@ -12,6 +12,8 @@ namespace Poti\MosaicGallery\Core;
 
 use Poti\MosaicGallery\Widgets\Poti_Gallery_Widget;
 use Poti\MosaicGallery\Admin\Infra_Settings;
+use Poti\MosaicGallery\PostType\Gallery_Post_Type;
+use Poti\MosaicGallery\PostType\Gallery_Shortcode;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -60,6 +62,10 @@ final class Plugin {
 		if ( is_admin() ) {
 			new Infra_Settings();
 		}
+
+		// Initialize Custom Post Type & Shortcode
+		new Gallery_Post_Type();
+		new Gallery_Shortcode();
 
 		// Register Elementor widgets
 		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
@@ -122,9 +128,18 @@ final class Plugin {
 	 * Enqueue frontend styles
 	 */
 	public function enqueue_frontend_styles() {
+		// Elementor widget styles
 		wp_enqueue_style(
 			'poti-gallery-frontend',
 			POTI_GALLERY_URL . 'assets/css/frontend.css',
+			[],
+			POTI_GALLERY_VERSION
+		);
+
+		// Shortcode gallery styles
+		wp_enqueue_style(
+			'poti-gallery-shortcode',
+			POTI_GALLERY_URL . 'assets/css/shortcode-gallery.css',
 			[],
 			POTI_GALLERY_VERSION
 		);
@@ -165,7 +180,17 @@ final class Plugin {
 	 * Enqueue frontend scripts
 	 */
 	public function enqueue_frontend_scripts() {
+		// Elementor widget handler
 		wp_enqueue_script( 'poti-gallery-widget-handler' );
+
+		// Shortcode gallery handler
+		wp_enqueue_script(
+			'poti-gallery-shortcode',
+			POTI_GALLERY_URL . 'assets/js/shortcode-gallery.js',
+			[ 'jquery', 'poti-gallery-fancybox' ],
+			POTI_GALLERY_VERSION,
+			true
+		);
 
 		// Localize script with data
 		wp_localize_script(
@@ -201,6 +226,7 @@ final class Plugin {
 	 * Enqueue editor scripts
 	 */
 	public function enqueue_editor_scripts() {
+		// Elementor editor
 		wp_enqueue_script(
 			'poti-gallery-editor',
 			POTI_GALLERY_URL . 'assets/js/editor.js',
@@ -208,6 +234,19 @@ final class Plugin {
 			POTI_GALLERY_VERSION,
 			true
 		);
+
+		// Gallery post type admin
+		$screen = get_current_screen();
+		if ( $screen && $screen->post_type === 'poti_gallery' ) {
+			wp_enqueue_media();
+			wp_enqueue_script(
+				'poti-gallery-admin',
+				POTI_GALLERY_URL . 'assets/js/admin-gallery.js',
+				[ 'jquery', 'jquery-ui-sortable' ],
+				POTI_GALLERY_VERSION,
+				true
+			);
+		}
 	}
 
 	/**
