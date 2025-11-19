@@ -1,0 +1,93 @@
+/**
+ * Editor Styles
+ * Elementor editor-specific styles and UX enhancements
+ */
+
+@layer poti-gallery {
+  /* Editor-only wrapper */
+  .elementor-editor-active {
+    .poti-gallery-container {
+      /* Prevent lightbox in editor */
+      pointer-events: none;
+
+      .poti-gallery__link {
+        cursor: default;
+      }
+    }
+
+    /* Show visual feedback for columns */
+    .poti-gallery__column {
+      outline: 1px dashed rgba(0, 0, 0, 0.1);
+      outline-offset: -1px;
+
+      &:hover {
+        outline-color: var(--poti-orange);
+      }
+    }
+
+    /* Performance indicators */
+    .poti-performance-indicator {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      z-index: 10;
+
+      &--green {
+        background: #4caf50;
+      }
+
+      &--yellow {
+        background: #ff9800;
+      }
+
+      &--red {
+        background: #f44336;
+      }
+    }
+  }
+
+  /* Column capacity health bar */
+  .poti-column-health {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    background: var(--poti-light);
+    border-radius: 4px;
+    margin-bottom: 12px;
+
+    &__bar {
+      flex: 1;
+      height: 6px;
+      background: #e0e0e0;
+      border-radius: 3px;
+      overflow: hidden;
+
+      &-fill {
+        height: 100%;
+        transition: width 0.3s ease, background 0.3s ease;
+
+        &--green {
+          background: #4caf50;
+        }
+
+        &--yellow {
+          background: #ff9800;
+        }
+
+        &--red {
+          background: #f44336;
+        }
+      }
+    }
+
+    &__label {
+      font-size: 12px;
+      color: var(--poti-dark);
+      font-weight: 600;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+/**
+ * Captions Component
+ * Overlay, glassmorphism, and caption styles
+ */
+
+@layer poti-gallery {
+  .poti-gallery__caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background: var(--poti-gallery-overlay);
+    opacity: 0;
+    transition: opacity var(--poti-gallery-transition);
+
+    .poti-gallery__link:hover & {
+      opacity: 1;
+    }
+  }
+
+  .poti-gallery__caption {
+    color: var(--poti-white);
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    display: block;
+  }
+
+  /* Glassmorphism effect */
+  .poti-gallery--glassmorphism {
+    .poti-gallery__caption-overlay {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  }
+}
